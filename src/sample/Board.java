@@ -27,4 +27,11 @@ public class Board extends StackPane {
     public static List<StackPane> getBoard() {
         return board;
     }
+
+    public static void setRectangleFill(List<Integer> list) {
+        for (int i = 0 ; i < list.size() ; i++) {
+            Rectangle rectangleWithNewFill = (Rectangle) getBoard().get(list.get(i)).getChildren().get(0);
+            rectangleWithNewFill.setFill(Color.RED);
+        }
+    }
 }
