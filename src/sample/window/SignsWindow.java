@@ -1,4 +1,4 @@
-package sample.alert;
+package sample.window;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -8,21 +8,23 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class WinnerWindow {
+public class SignsWindow {
 
-    public static void showWinner(String name, String title){
+    public static void showSigns(final String playerOneName, final String playerTwoName, final String playerOneSign, final String playerTwoSign ) {
         Stage window = new Stage();
-        window.setTitle("Winner");
+        window.setTitle("Players");
         window.setMinHeight(200);
         window.setMinWidth(500);
         window.initModality(Modality.APPLICATION_MODAL);
 
-        Label label = new Label(title);
-        Label label1 = new Label(name);
+        Label playerOne = new Label(playerOneName + " player sign: " + playerOneSign);
+        Label playerTwo = new Label(playerTwoName + " sign: " + playerTwoSign);
+
         Button button = new Button("Ok");
         button.setOnAction(event -> window.close());
+
         VBox layout = new VBox(10);
-        layout.getChildren().addAll(label, label1, button);
+        layout.getChildren().addAll(playerOne, playerTwo, button);
         layout.setAlignment(Pos.CENTER);
 
         Scene scene = new Scene(layout);

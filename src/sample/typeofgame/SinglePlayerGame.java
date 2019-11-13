@@ -4,23 +4,25 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import sample.*;
+import sample.difficultylevel.Difficulty;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
-public class SinglePlayer implements Game {
+public class SinglePlayerGame implements Game {
     private final static String COMPUTER = "Computer";
     private boolean movement = false;
-    private Random random = new Random();
     private String playerName;
     private String playerSign;
     private String computerSign;
+    private Difficulty difficulty;
     private static boolean win = false;
     private WinnerDto winnerDto = new WinnerDto("", new ArrayList<>());
 
-    public SinglePlayer(String playerName, final List<String> signslist) {
+    public SinglePlayerGame(String playerName, final Difficulty difficulty, final List<String> signslist) {
         this.playerName = playerName;
+        this.difficulty = difficulty;
         playerSign = signslist.get(0);
         computerSign = signslist.get(1);
     }
@@ -39,7 +41,7 @@ public class SinglePlayer implements Game {
             }
         }
         if(movement && !win){
-            computerMove();
+            difficulty.computerMove(computerSign);
             find(computerSign, COMPUTER);
             movement = false;
         }
@@ -57,18 +59,6 @@ public class SinglePlayer implements Game {
         }
     }
 
-    public void computerMove () {
-        List<StackPane> list = Board.getBoard().stream()
-                .filter(stackPane -> stackPane.getChildren().size() == 1)
-                .collect(Collectors.toList());
-        if (list.size() != 0 && list.size() > 1){
-            int number = random.ints(0, list.size() - 1).findAny().getAsInt();
-            list.get(number).getChildren().add(Sign.getSign(computerSign));
-        }else if (list.size() == 1) {
-            list.get(0).getChildren().add(Sign.getSign(computerSign));
-        }
-    }
-
     private boolean checkAllSign () {
         List<StackPane> stackPaneList = Board.getBoard().stream()
                 .filter(stackPane -> stackPane.getChildren().size() == 2)
@@ -78,6 +68,6 @@ public class SinglePlayer implements Game {
     }
 
     public static void setWin(boolean win) {
-        SinglePlayer.win = win;
+        SinglePlayerGame.win = win;
     }
 }

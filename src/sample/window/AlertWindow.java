@@ -1,4 +1,4 @@
-package sample.alert;
+package sample.window;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -9,7 +9,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class AlertWindow {
-    static  boolean result;
+    private static  boolean result;
 
     public static boolean show(String title, String message) {
         Stage window = new Stage();

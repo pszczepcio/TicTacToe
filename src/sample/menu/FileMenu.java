@@ -7,20 +7,21 @@ import javafx.scene.control.MenuItem;
 public class FileMenu {
     private MenuBar menuBar;
     private Menu fileMenu = new Menu("File");
-    private MenuItem newGame = new MenuItem("new game");
-    private MenuItem closeGame = new MenuItem("close game");
+    private MenuItem singlePlayer = new MenuItem("Single player");
+    private MenuItem twoPlayers = new MenuItem("Two players");
+    private MenuItem closeGame = new MenuItem("Close game");
 
     public void createMenuBar() {
-        fileMenu.getItems().addAll(newGame, closeGame);
+        fileMenu.getItems().addAll(singlePlayer, twoPlayers, closeGame);
         menuBar = new MenuBar(fileMenu);
     }
 
-    public Menu getFileMenu() {
-        return fileMenu;
+    public MenuItem getSinglePlayer() {
+        return singlePlayer;
     }
 
-    public MenuItem getNewGame() {
-        return newGame;
+    public MenuItem getTwoPlayers() {
+        return twoPlayers;
     }
 
     public MenuItem getCloseGame() {

@@ -9,11 +9,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import sample.alert.AlertWindow;
-import sample.alert.SignsWindow;
-import sample.alert.WinnerWindow;
+import sample.typeofgame.TwoPlayerGame;
+import sample.window.*;
+import sample.difficultylevel.Difficulty;
+import sample.difficultylevel.Easy;
+import sample.difficultylevel.Medium;
 import sample.menu.FileMenu;
-import sample.typeofgame.SinglePlayer;
+import sample.typeofgame.SinglePlayerGame;
 import java.util.List;
 
 public class Main extends Application {
@@ -21,11 +23,13 @@ public class Main extends Application {
     private final static String DEAD_HEAT = "Dead heat";
     private Stage primaryStage;
     private BorderPane borderPane = new BorderPane();
-    private Player player = new Player();
+    private PlayerWindow newPlayer = new PlayerWindow();
+    private TwoPlayersWindow twoPlayersWindow = new TwoPlayersWindow();
     private TilePane pane = new TilePane();
     private Board board = new Board();
     private FileMenu menu = new FileMenu();
-    private String name;
+    private PlayerDto playerDto;
+    private Difficulty difficulty;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -60,11 +64,32 @@ public class Main extends Application {
     private void setMenuBar() {
         menu.createMenuBar();
         menu.getCloseGame().setOnAction(e -> closeProgram(primaryStage));
-        menu.getNewGame().setOnAction(e -> {
-            name = player.createPlayer();
-            clearBoard();
-            initBoard();
-            startSinglePlayerGame(CharacterDraw.characterDetermination());
+        menu.getSinglePlayer().setOnAction(e -> {
+            playerDto = newPlayer.createPlayer();
+            try {
+                if (!playerDto.getFirstPlayerName().equals("")) {
+                    difficulty = choiceOfDifficultyLevel(playerDto.getDifficultyLevel());
+                    clearBoard();
+                    initBoard();
+                    startSinglePlayerGame(CharacterDraw.characterDetermination());
+                }
+            }catch (NullPointerException ex){
+                System.out.println("Window shut down error \"PlayerWindow\" " + ex);
+            }
+        });
+
+        menu.getTwoPlayers().setOnAction(e -> {
+            playerDto = twoPlayersWindow.createPlayers();
+            try {
+                if (!playerDto.getFirstPlayerName().equals("")
+                        || !playerDto.getSecondPlayerName().equals("")) {
+                    clearBoard();
+                    initBoard();
+                    startTwoPlayersGame(CharacterDraw.characterDetermination());
+                }
+            }catch (NullPointerException ex) {
+                System.out.println("Window shut down error \"TwoPlayersWindow\" " + ex);
+            }
         });
     }
 
@@ -76,20 +101,27 @@ public class Main extends Application {
     }
 
     private void startSinglePlayerGame(List<String> signslist) {
-        SinglePlayer singlePlayer = new SinglePlayer(name, signslist);
-        SignsWindow.showSigns(name, "Computer",signslist.get(0), signslist.get(1));
+        SinglePlayerGame singlePlayerGame = new SinglePlayerGame(playerDto.getFirstPlayerName(),difficulty, signslist);
+        SignsWindow.showSigns(playerDto.getFirstPlayerName(), "Computer",signslist.get(0), signslist.get(1));
         if (signslist.get(1).equals("X")){
-            singlePlayer.computerMove();
+            difficulty.computerMove("X");
         }
         for (StackPane stackPane : Board.getBoard()) {
             stackPane.setOnMouseClicked(event -> {
-                WinnerDto winnerDto = singlePlayer.play(event);
-                if(!winnerDto.getWinnerName().equals("") && !winnerDto.getWinnerName().equals("Dead heat")){
-                    changeColorWinningFields(winnerDto.getWinnersFields());
-                    WinnerWindow.showWinner(winnerDto.getWinnerName(), MESSAGEWINNER);
-                }else if (!winnerDto.getWinnerName().equals("") && winnerDto.getWinnerName().equals("Dead heat")){
-                    WinnerWindow.showWinner("", DEAD_HEAT);
-                }
+                WinnerDto winnerDto = singlePlayerGame.play(event);
+                findWinnerPlayer(winnerDto);
+            });
+        }
+    }
+
+    private void startTwoPlayersGame(List<String> signslist) {
+        TwoPlayerGame twoPlayerGame = new TwoPlayerGame(playerDto, signslist);
+        SignsWindow.showSigns(playerDto.getFirstPlayerName(), playerDto.getSecondPlayerName(),
+                                signslist.get(0), signslist.get(1));
+        for (StackPane stackPane : Board.getBoard()) {
+            stackPane.setOnMouseClicked(event -> {
+                WinnerDto winnerDto = twoPlayerGame.play(event);
+                findWinnerPlayer(winnerDto);
             });
         }
     }
@@ -100,7 +132,7 @@ public class Main extends Application {
     }
 
     private void initBoard() {
-        SinglePlayer.setWin(false);
+        SinglePlayerGame.setWin(false);
         board.drawBoard();
         pane.getChildren().addAll(Board.getBoard());
         borderPane.setCenter(pane);
@@ -111,6 +143,27 @@ public class Main extends Application {
     private void changeColorWinningFields(final List<Integer> fieldsList) {
         Board.setRectangleFill(fieldsList);
     }
+
+    private Difficulty choiceOfDifficultyLevel (double difficultyLevel) {
+        if (difficultyLevel == 0){
+            return new Easy();
+        }
+        return new Medium();
+    }
+
+    private void findWinnerPlayer(WinnerDto winnerDto) {
+        if(!winnerDto.getWinnerName().equals("") && !winnerDto.getWinnerName().equals("Dead heat")){
+            changeColorWinningFields(winnerDto.getWinnersFields());
+            WinnerWindow.showWinner(winnerDto.getWinnerName(), MESSAGEWINNER);
+            clearBoard();
+            borderPane.setCenter(setText());
+        }else if (!winnerDto.getWinnerName().equals("") && winnerDto.getWinnerName().equals("Dead heat")){
+            WinnerWindow.showWinner("", DEAD_HEAT);
+            clearBoard();
+            borderPane.setCenter(setText());
+        }
+    }
+
     public static void main(String[] args) {
         launch(args);
     }
