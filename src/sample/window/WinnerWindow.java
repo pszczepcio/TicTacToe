@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 public class WinnerWindow {
 
-    public static void showWinner(String name, String title){
+    public static void showWinner(String name, String title, boolean propertyShow){
         Stage window = new Stage();
         window.setTitle("Winner");
         window.setMinHeight(200);
@@ -27,6 +27,11 @@ public class WinnerWindow {
 
         Scene scene = new Scene(layout);
         window.setScene(scene);
-        window.showAndWait();
+
+        if (propertyShow){
+            window.show();
+        }else {
+            window.showAndWait();
+        }
     }
 }

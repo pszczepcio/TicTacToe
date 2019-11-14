@@ -1,10 +1,14 @@
 package sample.typeofgame;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.util.Duration;
 import sample.*;
 import sample.difficultylevel.Difficulty;
+import sample.window.WinnerWindow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,17 +40,27 @@ public class SinglePlayerGame implements Game {
                         pane.getChildren().add(Sign.getSign(playerSign));
                         movement = true;
                     }
-                    find(playerSign,playerName);
                 }
+                find(playerSign,playerName);
+                Board.setRectangleFill(winnerDto.getWinnersFields());
             }
         }
-        if(movement && !win){
-            difficulty.computerMove(computerSign);
-            find(computerSign, COMPUTER);
-            movement = false;
-        }
+
+       Timeline timeline = new Timeline(new KeyFrame(
+                Duration.millis(700),
+                e -> {
+                    if (movement && !win) {
+                        difficulty.computerMove(computerSign);
+                        find(computerSign, COMPUTER);
+                        Board.setRectangleFill(winnerDto.getWinnersFields());
+                        movement = false;
+                    }
+                }));
+        timeline.play();
+
         if (!win && checkAllSign()) {
             winnerDto = new WinnerDto("Dead heat", new ArrayList<>());
+            WinnerWindow.showWinner("", Main.getDeadHeat(), true);
         }
         return winnerDto;
     }
@@ -56,6 +70,7 @@ public class SinglePlayerGame implements Game {
         if(winner.findWinner()) {
             win = true;
             winnerDto = new WinnerDto(name, winner.getWinnersFields());
+            WinnerWindow.showWinner(winnerDto.getWinnerName(), Main.getMESSAGEWINNER(), true);
         }
     }
 
