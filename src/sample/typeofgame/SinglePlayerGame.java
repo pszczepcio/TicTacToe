@@ -42,7 +42,6 @@ public class SinglePlayerGame implements Game {
                     }
                 }
                 find(playerSign,playerName);
-                Board.setRectangleFill(winnerDto.getWinnersFields());
             }
         }
 
@@ -52,16 +51,15 @@ public class SinglePlayerGame implements Game {
                     if (movement && !win) {
                         difficulty.computerMove(computerSign);
                         find(computerSign, COMPUTER);
-                        Board.setRectangleFill(winnerDto.getWinnersFields());
                         movement = false;
+                    }
+                    if (!win && checkAllSign()) {
+                        winnerDto = new WinnerDto("Dead heat", new ArrayList<>());
+                        WinnerWindow.showWinner("", Main.getDeadHeat(), true);
+                        win = true;
                     }
                 }));
         timeline.play();
-
-        if (!win && checkAllSign()) {
-            winnerDto = new WinnerDto("Dead heat", new ArrayList<>());
-            WinnerWindow.showWinner("", Main.getDeadHeat(), true);
-        }
         return winnerDto;
     }
 
@@ -71,6 +69,7 @@ public class SinglePlayerGame implements Game {
             win = true;
             winnerDto = new WinnerDto(name, winner.getWinnersFields());
             WinnerWindow.showWinner(winnerDto.getWinnerName(), Main.getMESSAGEWINNER(), true);
+            Board.setRectangleFill(winnerDto.getWinnersFields());
         }
     }
 

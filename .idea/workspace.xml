@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="- in class SinglePlayerGame introduced a delay between the movement of the computer and the player(used class TimeLine)">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="- transferring the method to check the condition on dead heat to the timeline&#10;- transferring Board.setRectangleFill to method find&#10;- added in class WinnerWindow method: Main.clearBoard() and Main.borderPane.setCenter(Main.setText())&#10;- changed fields borderpane and pane on static">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TicTacToe/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TicTacToe/sample/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TicTacToe/sample/typeofgame/SinglePlayerGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TicTacToe/sample/typeofgame/SinglePlayerGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TicTacToe/sample/window/PlayerWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TicTacToe/sample/window/PlayerWindow.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TicTacToe/sample/window/WinnerWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TicTacToe/sample/window/WinnerWindow.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/typeofgame/SinglePlayerGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/typeofgame/SinglePlayerGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/window/PlayerWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/window/PlayerWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/window/WinnerWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/window/WinnerWindow.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -81,25 +79,25 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="60" />
-          <entry key="java" value="17620" />
-          <entry key="txt" value="1343" />
+          <entry key="java" value="17718" />
+          <entry key="txt" value="1677" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="17620" />
-          <entry key="PLAIN_TEXT" value="1403" />
+          <entry key="JAVA" value="17718" />
+          <entry key="PLAIN_TEXT" value="1737" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="167" />
+          <entry key="java" value="168" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="167" />
+          <entry key="JAVA" value="168" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -110,17 +108,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1513">
-              <caret line="89" column="46" lean-forward="true" selection-start-line="89" selection-start-column="46" selection-end-line="89" selection-end-column="46" />
+            <state relative-caret-position="-353">
+              <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6030#6031#0" expanded="true" />
-                <element signature="e#6066#6067#0" expanded="true" />
-                <element signature="e#6108#6109#0" expanded="true" />
-                <element signature="e#6140#6141#0" expanded="true" />
+                <element signature="e#5269#5270#0" expanded="true" />
+                <element signature="e#5319#5320#0" expanded="true" />
+                <element signature="e#6189#6190#0" expanded="true" />
+                <element signature="e#6225#6226#0" expanded="true" />
+                <element signature="e#6267#6268#0" expanded="true" />
+                <element signature="e#6299#6300#0" expanded="true" />
+                <element signature="e#6345#6346#0" expanded="true" />
+                <element signature="e#6373#6374#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -129,8 +131,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/typeofgame/SinglePlayerGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1411">
-              <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
+            <state relative-caret-position="178">
+              <caret line="59" column="21" lean-forward="true" selection-start-line="59" selection-start-column="21" selection-end-line="59" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -141,20 +143,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/window/WinnerWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/window/PlayerWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="77" column="52" lean-forward="true" selection-start-line="77" selection-start-column="52" selection-end-line="77" selection-end-column="52" />
+            <state relative-caret-position="281">
+              <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -209,10 +199,10 @@
         <option value="$PROJECT_DIR$/src/sample/difficultylevel/Difficulty.java" />
         <option value="$PROJECT_DIR$/src/sample/difficultylevel/Easy.java" />
         <option value="$PROJECT_DIR$/src/sample/difficultylevel/Medium.java" />
+        <option value="$PROJECT_DIR$/src/sample/window/PlayerWindow.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/window/WinnerWindow.java" />
         <option value="$PROJECT_DIR$/src/sample/typeofgame/SinglePlayerGame.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main.java" />
-        <option value="$PROJECT_DIR$/src/sample/window/PlayerWindow.java" />
       </list>
     </option>
   </component>
@@ -297,7 +287,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573772845460" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573777239957" />
     <property name="dynamic.classpath" value="false" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -415,7 +405,7 @@
       <workItem from="1573729192315" duration="370000" />
       <workItem from="1573729970216" duration="1215000" />
       <workItem from="1573731551437" duration="5985000" />
-      <workItem from="1573767290012" duration="5508000" />
+      <workItem from="1573767290012" duration="9887000" />
     </task>
     <task id="LOCAL-00001" summary="- create class AlertWindow(used to close the application)&#10;- create class FileMenu(used to create MenuBar)&#10;- create class Board&#10;- create class Player(player creation view)&#10;- create mainClass &quot;Main&quot;">
       <created>1573089607644</created>
@@ -438,11 +428,18 @@
       <option name="project" value="LOCAL" />
       <updated>1573647665720</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="- in class SinglePlayerGame introduced a delay between the movement of the computer and the player(used class TimeLine)&#10;- added in class WinnerWindow new argument(boolean propertShow) in class constructor. This argument decides whether the show () or showAndWait () method is executed.&#10;-  added in class Main getters to fields: MESSAGEWINNER, DEAD_HEAT. Removed fields: PlayerWindow newPlayer and TwoPlayersWindow twoPlayersWindow. These variables were created locally in methods">
+      <created>1573773490679</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1573773490679</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122496000" />
+    <option name="totallyTimeSpent" value="126875000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
@@ -457,7 +454,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32756132" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3030303" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3030303" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997114" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -470,7 +467,7 @@
       <window_info anchor="bottom" id="Event Log" order="12" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32756132" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="15" weight="0.32323232" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="15" visible="true" weight="0.32323232" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -496,7 +493,8 @@
     <MESSAGE value="- create class AlertWindow(used to close the application)&#10;- create class FileMenu(used to create MenuBar)&#10;- create class Board&#10;- create class Player(player creation view)&#10;- create mainClass &quot;Main&quot;" />
     <MESSAGE value="- add two classes in package alert (SignsWindowe, WinnerWindow)&#10;- created package typeofgame and class SinglePlayer&#10;- added method setRectangleFill in class Board&#10;- added class CharacterDraw to designate characters for players&#10;- added interface Game&#10;- added fields MESSAGEWINNER, DEAD_HEAT, name and methods startSinglePlayerGame(List&lt;String&gt; signslist), clearBoard(), initBoard(), changeColorWinningFields(final List&lt;Integer&gt; fieldsList)&#10;- created class Sign which return Text with color Blue and Font 100&#10;- added class Winner. This class is used to find the winner and winning half&#10;- added class WinnerDto" />
     <MESSAGE value="- added package difficultylevel( in package added interface Difficulty, class Easy and Medium). This package is responsibility for computer movements&#10;- fields MenuItem has been replaced by two fields MenuItem singlePlayer and MenuItem twoPlayers&#10;- in package typeofgame class name changed SinglePlayer to SinglePlayerGame and added class TwoPlayerGame&#10;- package name changed from alert to window&#10;- in class PlayerWindow added Slider&#10;- added class TwoPlayersWindow in package window&#10;- in class Main added fields: TwoPlayersWindow twoPlayersWindow, PlayerDto playerDto, Difficulty difficulty. Changes have been made to the methods: &quot;setMenuBar&quot; , &quot;startSinglePlayerGame&quot;. Added new Methods: startTwoPlayersGame, choiceOfDifficultyLevel&#10;- added class PlayerDto" />
-    <option name="LAST_COMMIT_MESSAGE" value="- added package difficultylevel( in package added interface Difficulty, class Easy and Medium). This package is responsibility for computer movements&#10;- fields MenuItem has been replaced by two fields MenuItem singlePlayer and MenuItem twoPlayers&#10;- in package typeofgame class name changed SinglePlayer to SinglePlayerGame and added class TwoPlayerGame&#10;- package name changed from alert to window&#10;- in class PlayerWindow added Slider&#10;- added class TwoPlayersWindow in package window&#10;- in class Main added fields: TwoPlayersWindow twoPlayersWindow, PlayerDto playerDto, Difficulty difficulty. Changes have been made to the methods: &quot;setMenuBar&quot; , &quot;startSinglePlayerGame&quot;. Added new Methods: startTwoPlayersGame, choiceOfDifficultyLevel&#10;- added class PlayerDto" />
+    <MESSAGE value="- in class SinglePlayerGame introduced a delay between the movement of the computer and the player(used class TimeLine)&#10;- added in class WinnerWindow new argument(boolean propertShow) in class constructor. This argument decides whether the show () or showAndWait () method is executed.&#10;-  added in class Main getters to fields: MESSAGEWINNER, DEAD_HEAT. Removed fields: PlayerWindow newPlayer and TwoPlayersWindow twoPlayersWindow. These variables were created locally in methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="- in class SinglePlayerGame introduced a delay between the movement of the computer and the player(used class TimeLine)&#10;- added in class WinnerWindow new argument(boolean propertShow) in class constructor. This argument decides whether the show () or showAndWait () method is executed.&#10;-  added in class Main getters to fields: MESSAGEWINNER, DEAD_HEAT. Removed fields: PlayerWindow newPlayer and TwoPlayersWindow twoPlayersWindow. These variables were created locally in methods" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -535,13 +533,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
           <caret line="462" selection-start-line="462" selection-end-line="462" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/javafx-src.zip!/javafx/event/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="198" selection-start-line="198" selection-end-line="198" />
         </state>
       </provider>
     </entry>
@@ -651,24 +642,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/javafx-src.zip!/javafx/event/Event.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
-          <caret line="89" column="46" lean-forward="true" selection-start-line="89" selection-start-column="46" selection-end-line="89" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6030#6031#0" expanded="true" />
-            <element signature="e#6066#6067#0" expanded="true" />
-            <element signature="e#6108#6109#0" expanded="true" />
-            <element signature="e#6140#6141#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="317">
+          <caret line="198" selection-start-line="198" selection-end-line="198" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/typeofgame/SinglePlayerGame.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/window/PlayerWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
+        <state relative-caret-position="359">
+          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -677,20 +661,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/window/WinnerWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="281">
+          <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/window/PlayerWindow.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/typeofgame/SinglePlayerGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="77" column="52" lean-forward="true" selection-start-line="77" selection-start-column="52" selection-end-line="77" selection-end-column="52" />
+        <state relative-caret-position="178">
+          <caret line="59" column="21" lean-forward="true" selection-start-line="59" selection-start-column="21" selection-end-line="59" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-353">
+          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5269#5270#0" expanded="true" />
+            <element signature="e#5319#5320#0" expanded="true" />
+            <element signature="e#6189#6190#0" expanded="true" />
+            <element signature="e#6225#6226#0" expanded="true" />
+            <element signature="e#6267#6268#0" expanded="true" />
+            <element signature="e#6299#6300#0" expanded="true" />
+            <element signature="e#6345#6346#0" expanded="true" />
+            <element signature="e#6373#6374#0" expanded="true" />
           </folding>
         </state>
       </provider>

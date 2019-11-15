@@ -22,8 +22,8 @@ public class Main extends Application {
     private final static String MESSAGEWINNER = "The winner is:";
     private final static String DEAD_HEAT = "Dead heat";
     private Stage primaryStage;
-    private BorderPane borderPane = new BorderPane();
-    private TilePane pane = new TilePane();
+    public static BorderPane borderPane = new BorderPane();
+    private static TilePane pane = new TilePane();
     private Board board = new Board();
     private FileMenu menu = new FileMenu();
     private Difficulty difficulty;
@@ -94,7 +94,7 @@ public class Main extends Application {
         });
     }
 
-    private Text setText() {
+    public static Text setText() {
         Text text = new Text("Tic Tac Toe\n    Game");
         text.setFont(Font.font(100));
         text.setFill(Color.BLUE);
@@ -124,7 +124,7 @@ public class Main extends Application {
         }
     }
 
-    private void clearBoard() {
+    public static void clearBoard() {
         Board.getBoard().clear();
         pane.getChildren().clear();
     }

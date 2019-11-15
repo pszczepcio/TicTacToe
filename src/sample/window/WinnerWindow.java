@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import sample.Main;
 
 public class WinnerWindow {
 
@@ -20,7 +21,11 @@ public class WinnerWindow {
         Label label = new Label(title);
         Label label1 = new Label(name);
         Button button = new Button("Ok");
-        button.setOnAction(event -> window.close());
+        button.setOnAction(event -> {
+            window.close();
+            Main.clearBoard();
+            Main.borderPane.setCenter(Main.setText());
+        });
         VBox layout = new VBox(10);
         layout.getChildren().addAll(label, label1, button);
         layout.setAlignment(Pos.CENTER);
